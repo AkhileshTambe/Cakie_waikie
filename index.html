@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CakeCraft — Design Your Dream Cake Online</title>
+  <meta name="description" content="Design and order custom cakes from nearby bakeries. Choose flavour, shape, theme, weight and message. CakeCraft connects you to the best local bakers." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🎂</div>
+      CakeCraft
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#market">Who It's For</a>
+      <a href="bakeries.html">Bakeries</a>
+    </div>
+    <div class="nav-cta">
+      <a href="bakeries.html" class="btn btn-outline" style="padding:10px 24px;font-size:0.88rem;">Find Bakery</a>
+      <a href="designer.html" class="btn btn-primary" style="padding:10px 24px;font-size:0.88rem;">Design a Cake ✨</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" id="closeMenu">✕</button>
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#market" onclick="closeMobileMenu()">Who It's For</a>
+  <a href="bakeries.html">Find Bakeries</a>
+  <a href="designer.html" class="btn btn-orange">Design a Cake</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span></span>
+          India's #1 Custom Cake Platform
+        </div>
+        <h1>Design Your<br><em>Dream Cake</em><br>Online</h1>
+        <p class="hero-desc">
+          A website where customers design their own cake step‑by‑step and order it from nearby partner bakeries — all without a single phone call.
+        </p>
+        <div class="hero-actions">
+          <a href="designer.html" class="btn btn-primary">
+            🎨 &nbsp;Start Designing
+          </a>
+          <a href="bakeries.html" class="btn btn-outline">
+            🏪 &nbsp;Find Bakeries
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">500+</span>
+            <span class="stat-label">Partner Bakeries</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">20K+</span>
+            <span class="stat-label">Cakes Delivered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">4.9★</span>
+            <span class="stat-label">Avg. Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual fade-in">
+        <div class="hero-cake-card">
+          <div class="cake-preview">🎂</div>
+          <div class="cake-meta">
+            <div>
+              <div class="cake-title">Chocolate Dream Cake</div>
+              <div style="font-size:0.82rem;color:var(--brown3);margin-top:4px;">2 kg · Round · Custom</div>
+            </div>
+            <div class="cake-price">₹1,299</div>
+          </div>
+          <div style="margin-top:20px;">
+            <a href="designer.html" class="btn btn-orange" style="width:100%;justify-content:center;">Order This Design →</a>
+          </div>
+        </div>
+        <div class="floating-badge badge-1">
+          <span class="dot"></span> 3 bakeries nearby
+        </div>
+        <div class="floating-badge badge-2">
+          🚀 Ready in 24 hrs
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features section" id="features">
+  <div class="container">
+    <div class="tag">Key Features</div>
+    <h2 class="section-title fade-up">Everything You Need<br>to Order the <em>Perfect</em> Cake</h2>
+    <p class="section-sub fade-up">From the first design click to your doorstep — we've built every feature that matters.</p>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🎨</div>
+        <h3>Cake Customisation Tool</h3>
+        <p>Choose weight, flavour, shape, theme, design style and add a personal message — all in one intuitive step-by-step flow.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.1s">
+        <div class="feature-icon">📸</div>
+        <h3>Photo Cake Upload</h3>
+        <p>Upload your favourite photo and get it printed on a food-safe edible sheet directly on your custom cake.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.2s">
+        <div class="feature-icon">💰</div>
+        <h3>Live Price Calculation</h3>
+        <p>See your cake price update in real time as you customise — no hidden charges, no surprise bills at checkout.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.3s">
+        <div class="feature-icon">📍</div>
+        <h3>Nearby Bakery Selection</h3>
+        <p>Our platform shows you verified partner bakeries sorted by distance, ratings and availability for your chosen date.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.4s">
+        <div class="feature-icon">🚚</div>
+        <h3>Delivery or Takeaway</h3>
+        <p>Choose home delivery or pickup at the bakery. Track your order status from baking to your doorstep.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.5s">
+        <div class="feature-icon">💬</div>
+        <h3>Direct Bakery Chat</h3>
+        <p>Message the bakery directly within the platform. No confusion, no missed calls — crystal-clear communication.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works section" id="how-it-works">
+  <div class="container">
+    <div class="tag">The Process</div>
+    <h2 class="section-title fade-up">How It Works</h2>
+    <p class="section-sub fade-up">Five simple steps from idea to celebration — it's never been this easy.</p>
+    <div class="steps-container">
+      <div class="step-row">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-badge">Start Here</div>
+          <h3>Visit the Website</h3>
+          <p>Head to CakeCraft on any device. No app download needed. Browse cake ideas or jump straight into the designer.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-badge">Personalise</div>
+          <h3>Design Your Cake</h3>
+          <p>Select cake weight, flavour, shape, theme, decorations and write your personalised message. Watch the price update live.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-badge">Choose</div>
+          <h3>Pick a Nearby Bakery</h3>
+          <p>The platform shows verified bakeries near you, sorted by distance and rating. Compare menus, prices and reviews.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-badge">Finalise</div>
+          <h3>Select Pickup or Delivery</h3>
+          <p>Choose a convenient delivery slot or schedule a pickup. Pay securely online via UPI, card or net banking.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <div class="step-badge">Celebrate!</div>
+          <h3>Bakery Prepares Your Cake</h3>
+          <p>The partner bakery receives your exact design brief, bakes your cake to specification and delivers it fresh on time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DESIGNER PREVIEW ===== -->
+<section class="designer-preview section">
+  <div class="container">
+    <div class="designer-inner">
+      <div class="slide-left">
+        <div class="tag">Try It Now</div>
+        <h2 class="section-title">Design Your Cake<br>Right Here</h2>
+        <p class="section-sub" style="margin-bottom:32px;">A quick taste of our full cake designer — pick your preferences and see the price live.</p>
+        <div class="designer-options">
+          <div class="option-group">
+            <div class="option-label">Flavour</div>
+            <div class="option-chips" id="flavourChips">
+              <div class="chip active" data-price="0">Chocolate</div>
+              <div class="chip" data-price="50">Red Velvet</div>
+              <div class="chip" data-price="30">Vanilla</div>
+              <div class="chip" data-price="80">Mango</div>
+              <div class="chip" data-price="60">Butterscotch</div>
+            </div>
+          </div>
+          <div class="option-group">
+            <div class="option-label">Shape</div>
+            <div class="option-chips" id="shapeChips">
+              <div class="chip active" data-price="0">Round 🔵</div>
+              <div class="chip" data-price="40">Square ⬛</div>
+              <div class="chip" data-price="80">Heart ❤️</div>
+              <div class="chip" data-price="120">Custom ✨</div>
+            </div>
+          </div>
+          <div class="option-group">
+            <div class="option-label">Weight</div>
+            <div class="option-chips" id="weightChips">
+              <div class="chip" data-price="399">0.5 kg</div>
+              <div class="chip active" data-price="699">1 kg</div>
+              <div class="chip" data-price="1199">2 kg</div>
+              <div class="chip" data-price="2099">3 kg</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:36px;">
+          <a href="designer.html" class="btn btn-primary">Open Full Designer →</a>
+        </div>
+      </div>
+
+      <div class="designer-visual slide-right">
+        <span class="big-cake" id="previewEmoji">🎂</span>
+        <div id="previewLabel" style="text-align:center;color:var(--brown3);font-size:0.9rem;">Chocolate · Round</div>
+        <div class="price-tag" id="previewPrice">₹699 <span>estimated</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TARGET MARKET ===== -->
+<section class="target section" id="market">
+  <div class="container">
+    <div class="tag">Target Market</div>
+    <h2 class="section-title fade-up">Made for Every<br><em>Sweet Occasion</em></h2>
+    <p class="section-sub fade-up">CakeCraft serves anyone who wants a cake that tells their story.</p>
+    <div class="market-grid">
+      <div class="market-card fade-up">
+        <div class="market-icon">🎉</div>
+        <div>
+          <h3>Birthday Celebrations</h3>
+          <p>Make every birthday unforgettable with a fully personalised cake — favourite flavour, custom message and a perfect design.</p>
+        </div>
+      </div>
+      <div class="market-card fade-up" style="transition-delay:0.1s">
+        <div class="market-icon">💍</div>
+        <div>
+          <h3>Weddings & Anniversaries</h3>
+          <p>Create elegant multi-tier wedding cakes or romantic anniversary designs that match your special day's theme perfectly.</p>
+        </div>
+      </div>
+      <div class="market-card fade-up" style="transition-delay:0.2s">
+        <div class="market-icon">🎊</div>
+        <div>
+          <h3>Parties & Corporate Events</h3>
+          <p>Bulk orders, branded cakes and theme-specific designs for office parties, product launches and corporate celebrations.</p>
+        </div>
+      </div>
+      <div class="market-card fade-up" style="transition-delay:0.3s">
+        <div class="market-icon">✨</div>
+        <div>
+          <h3>People Who Love Personalisation</h3>
+          <p>For anyone who refuses to settle for an off-the-shelf cake — express yourself through every layer, frosting and decoration.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="benefits section">
+  <div class="container">
+    <div class="tag">For Bakeries</div>
+    <h2 class="section-title fade-up" style="color:var(--cream);">Why Bakeries<br><em>Love CakeCraft</em></h2>
+    <p class="section-sub fade-up">Join 500+ partner bakeries already growing their business with us.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item fade-up">
+        <div class="benefit-num">01</div>
+        <h3>More Online Orders</h3>
+        <p>Reach thousands of customers who want custom cakes but don't know where to look. Your storefront, open 24/7.</p>
+      </div>
+      <div class="benefit-item fade-up" style="transition-delay:0.1s">
+        <div class="benefit-num">02</div>
+        <h3>Wider Customer Exposure</h3>
+        <p>CakeCraft's platform marketing puts your bakery in front of customers across your entire city and beyond.</p>
+      </div>
+      <div class="benefit-item fade-up" style="transition-delay:0.2s">
+        <div class="benefit-num">03</div>
+        <h3>Easy Order Management</h3>
+        <p>A dedicated bakery dashboard to manage incoming orders, track statuses, message customers and update availability.</p>
+      </div>
+      <div class="benefit-item fade-up" style="transition-delay:0.3s">
+        <div class="benefit-num">04</div>
+        <h3>Increased Revenue</h3>
+        <p>Custom cakes command premium prices. Our platform helps you upsell premium tiers, add-ons and special designs.</p>
+      </div>
+    </div>
+    <div style="margin-top:48px;text-align:center;">
+      <a href="bakeries.html" class="btn btn-orange">Become a Partner Bakery →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVENUE MODEL ===== -->
+<section class="revenue section">
+  <div class="container">
+    <div class="tag">Revenue Model</div>
+    <h2 class="section-title fade-up">How CakeCraft<br><em>Sustains Itself</em></h2>
+    <p class="section-sub fade-up">A fair, transparent model that keeps bakeries and customers happy.</p>
+    <div class="revenue-grid">
+      <div class="revenue-card fade-up">
+        <span class="r-icon">💸</span>
+        <h3>Commission per Order</h3>
+        <p>A small commission on every order processed through the platform — only when bakeries earn, we earn.</p>
+      </div>
+      <div class="revenue-card fade-up" style="transition-delay:0.1s">
+        <span class="r-icon">📋</span>
+        <h3>Bakery Subscriptions</h3>
+        <p>Partner bakeries can subscribe to premium plans for enhanced features, priority listing and analytics access.</p>
+      </div>
+      <div class="revenue-card fade-up" style="transition-delay:0.2s">
+        <span class="r-icon">⭐</span>
+        <h3>Featured Promotions</h3>
+        <p>Bakeries can pay to feature their profiles at the top of search results and get highlighted in our marketing campaigns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FUTURE FEATURES ===== -->
+<section class="future section">
+  <div class="container">
+    <div class="tag">What's Coming</div>
+    <h2 class="section-title fade-up">Future Features<br>on the <em>Roadmap</em></h2>
+    <p class="section-sub fade-up">We're constantly building to make CakeCraft even more magical.</p>
+    <div class="future-grid">
+      <div class="future-card fade-up">
+        <div class="f-icon">🧊</div>
+        <div>
+          <div class="coming-soon">Q2 2025</div>
+          <h3>3D Cake Preview</h3>
+          <p>Rotate and view your designed cake in a full 3D preview before you place the order. What you see is what you get.</p>
+        </div>
+      </div>
+      <div class="future-card fade-up" style="transition-delay:0.1s">
+        <div class="f-icon">🤖</div>
+        <div>
+          <div class="coming-soon">Q3 2025</div>
+          <h3>AI Cake Design Suggestions</h3>
+          <p>Tell our AI your occasion and preferences. It will suggest perfect cake designs, colour palettes and flavour combos.</p>
+        </div>
+      </div>
+      <div class="future-card fade-up" style="transition-delay:0.2s">
+        <div class="f-icon">🔔</div>
+        <div>
+          <div class="coming-soon">Q4 2025</div>
+          <h3>Occasion Reminders</h3>
+          <p>Add birthdays and anniversaries to your profile and receive reminders to order custom cakes ahead of time.</p>
+        </div>
+      </div>
+      <div class="future-card fade-up" style="transition-delay:0.3s">
+        <div class="f-icon">📱</div>
+        <div>
+          <div class="coming-soon">Q1 2026</div>
+          <h3>Mobile App (iOS & Android)</h3>
+          <p>A full-featured mobile app with push notifications, live tracking and an even smoother cake-design experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials section">
+  <div class="container">
+    <div class="tag">Testimonials</div>
+    <h2 class="section-title fade-up">Loved by Customers<br>&amp; <em>Bakers Alike</em></h2>
+    <p class="section-sub fade-up">Don't take our word for it — hear from the people who've used CakeCraft.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="t-quote">"</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">I ordered a custom photo cake for my mum's 60th birthday. The whole process took under 10 minutes and the cake was stunning. The bakery followed every detail perfectly!</p>
+        <div class="t-author">
+          <div class="t-avatar">P</div>
+          <div>
+            <div class="t-name">Priya Sharma</div>
+            <div class="t-role">Mumbai, Maharashtra</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up" style="transition-delay:0.1s">
+        <div class="t-quote">"</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">As a bakery owner, CakeCraft doubled my custom orders in the first month. The dashboard makes managing orders so simple. Highly recommend to any baker!</p>
+        <div class="t-author">
+          <div class="t-avatar">R</div>
+          <div>
+            <div class="t-name">Rajesh Nair</div>
+            <div class="t-role">Bakery Owner, Bangalore</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up" style="transition-delay:0.2s">
+        <div class="t-quote">"</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">Ordered a 3-tier wedding cake for our reception. The ability to chat directly with the baker and get updates was a gamechanger. Absolutely loved the result!</p>
+        <div class="t-author">
+          <div class="t-avatar">A</div>
+          <div>
+            <div class="t-name">Anjali Mehta</div>
+            <div class="t-role">Delhi, NCR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION ===== -->
+<section class="vision">
+  <div class="container">
+    <div class="tag" style="margin-bottom:32px;">Our Vision</div>
+    <h2>Become the Largest<br>Platform for <em>Custom Cakes</em><br>in India</h2>
+    <p>We believe every cake should tell a story. Our mission is to connect every Indian celebration with the perfect custom cake — made by talented local bakers, designed by you.</p>
+    <a href="designer.html" class="btn btn-orange" style="font-size:1rem;padding:18px 44px;">Start Designing Today →</a>
+    <div class="vision-stats">
+      <div class="v-stat">
+        <div class="v-stat-num">500+</div>
+        <div class="v-stat-label">Partner Bakeries</div>
+      </div>
+      <div class="v-stat">
+        <div class="v-stat-num">50+</div>
+        <div class="v-stat-label">Cities Served</div>
+      </div>
+      <div class="v-stat">
+        <div class="v-stat-num">20K+</div>
+        <div class="v-stat-label">Cakes Delivered</div>
+      </div>
+      <div class="v-stat">
+        <div class="v-stat-num">4.9★</div>
+        <div class="v-stat-label">Avg. Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Design Your<br>Dream Cake?</h2>
+    <p>Join thousands of happy customers who've already created something extraordinary with CakeCraft.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="designer.html" class="btn btn-white">🎂 &nbsp;Design My Cake</a>
+      <a href="bakeries.html" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,0.5);">Find Nearby Bakeries →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">🎂 CakeCraft</div>
+        <p>India's leading online platform for custom cake design and ordering. Connecting cake lovers with talented local bakers since 2024.</p>
+        <div class="social-links" style="margin-top:24px;">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="designer.html">Cake Designer</a></li>
+          <li><a href="bakeries.html">Find Bakeries</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Centre</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 CakeCraft. All rights reserved. Made with 🧡 for India.</p>
+      <p>🇮🇳 Available across 50+ cities in India</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="toast-icon">🎂</span>
+  <span id="toastMsg">Welcome to CakeCraft!</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

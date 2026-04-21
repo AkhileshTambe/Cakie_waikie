@@ -1,249 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Design Your Cake — CakeCraft</title>
-  <meta name="description" content="Use CakeCraft's step-by-step cake designer to choose flavour, shape, weight, theme, and message. Get a live price estimate and order from a nearby bakery." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
-<!-- NAVBAR -->
 <nav class="navbar scrolled" id="navbar">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <div class="logo-icon">🎂</div>
-      CakeCraft
-    </a>
-    <div class="nav-links">
-      <a href="index.html#features">Features</a>
-      <a href="index.html#how-it-works">How It Works</a>
-      <a href="bakeries.html">Bakeries</a>
-    </div>
+  <div class="container"><div class="nav-row">
+    <a href="index.html" class="logo"><div class="logo-icon">🎂</div>CakeCraft</a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="bakeries.html">Bakeries</a><a href="designer.html">Designer</a></div>
     <div class="nav-cta">
-      <a href="bakeries.html" class="btn btn-outline" style="padding:10px 24px;font-size:0.88rem;">Find Bakery</a>
-      <a href="designer.html" class="btn btn-primary" style="padding:10px 24px;font-size:0.88rem;">Design a Cake ✨</a>
+      <a href="bakeries.html" class="btn btn-cream btn-sm">Find Bakery</a>
+      <a href="designer.html" class="btn btn-orange btn-sm">🎨 Design</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div></div>
 </nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-menu" id="closeMenu">✕</button>
-  <a href="index.html">Home</a>
-  <a href="bakeries.html">Find Bakeries</a>
-  <a href="designer.html" class="btn btn-orange">Design a Cake</a>
+<div class="mobile-menu" id="mob"><button class="close-menu" id="mob-close">✕</button>
+  <a href="index.html">Home</a><a href="bakeries.html">Bakeries</a>
+  <a href="designer.html" class="btn btn-orange" style="margin-top:12px">Design a Cake</a>
 </div>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
+<!-- PAGE TOP -->
+<div class="page-top">
+  <div class="page-top-glow" style="width:450px;height:450px;background:rgba(232,101,26,.18);top:-80px;right:-60px;"></div>
+  <div class="page-top-glow" style="width:300px;height:300px;background:rgba(255,179,71,.12);bottom:-40px;left:-40px;"></div>
   <div class="container">
-    <div class="tag">Cake Designer</div>
-    <h1 style="font-size:clamp(2rem,5vw,4rem);">Design Your <em style="color:var(--orange);">Dream Cake</em></h1>
-    <p style="max-width:500px;margin:16px auto 0;font-size:1.05rem;">Step-by-step customisation with live price updates. No phone calls needed.</p>
+    <div class="pill" style="margin-bottom:20px;">Step-by-Step Designer</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.8rem);">Design Your <em style="color:var(--orange3);font-style:italic;">Dream Cake</em></h1>
+    <p>Big buttons, clear choices, live price update. Works for everyone.</p>
   </div>
 </div>
 
-<!-- DESIGNER PAGE -->
-<section class="designer-page">
+<!-- DESIGNER BODY -->
+<section class="designer-body">
   <div class="container">
 
-    <!-- Progress bar -->
-    <div style="margin-bottom:40px;">
-      <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
-        <span style="font-size:0.82rem;font-weight:600;color:var(--brown3);text-transform:uppercase;letter-spacing:0.08em;">Design Progress</span>
-        <span style="font-size:0.82rem;font-weight:600;color:var(--orange);" id="progressPct">0% Complete</span>
+    <!-- Progress Bar -->
+    <div class="progress-wrap">
+      <div style="flex:1;min-width:160px;">
+        <div class="prog-labels"><span>Your Design Progress</span><strong id="progPct">Step 1 of 7</strong></div>
+        <div class="prog-track" style="margin-top:6px;"><div class="prog-fill" id="progFill" style="width:14%;"></div></div>
       </div>
-      <div style="height:6px;background:var(--cream2);border-radius:99px;overflow:hidden;">
-        <div id="progressBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--orange),var(--orange2));border-radius:99px;transition:width 0.4s;"></div>
+      <div class="prog-step-dots">
+        <div class="prog-dot done" id="pd1" title="Weight">⚖️</div>
+        <div class="prog-dot" id="pd2" title="Flavour">2</div>
+        <div class="prog-dot" id="pd3" title="Shape">3</div>
+        <div class="prog-dot" id="pd4" title="Theme">4</div>
+        <div class="prog-dot" id="pd5" title="Frosting">5</div>
+        <div class="prog-dot" id="pd6" title="Add-ons">6</div>
+        <div class="prog-dot" id="pd7" title="Message">7</div>
       </div>
     </div>
 
-    <div class="designer-layout">
-      <!-- Left: Options -->
-      <div class="designer-panel">
-        <h2>Customise Your Cake</h2>
-        <p>Make your selections below. Every choice updates your price instantly.</p>
+    <div class="d-layout">
+      <!-- ════ LEFT: Accordion Steps ════ -->
+      <div class="d-step-wrap">
 
-        <!-- Step 1: Weight -->
-        <div class="d-section">
-          <div class="d-section-title">Step 1 — Cake Weight</div>
-          <div class="weight-slider">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <div class="weight-display"><span id="weightVal">1</span> kg</div>
-              <div style="font-size:0.82rem;color:var(--brown3);">Serves ~<span id="servingVal">8</span> people</div>
+        <!-- STEP 1: WEIGHT -->
+        <div class="d-step active" id="step1">
+          <div class="d-step-header" onclick="toggleStep('step1')">
+            <div class="d-step-num done">⚖️</div>
+            <div>
+              <div class="d-step-title">Cake Weight</div>
+              <div class="d-step-summary" id="sum1">1 kg — serves ~8 people</div>
             </div>
-            <input type="range" id="weightSlider" min="1" max="5" value="1" step="0.5" />
-            <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--brown3);margin-top:4px;">
-              <span>0.5 kg</span><span>1 kg</span><span>2 kg</span><span>3 kg</span><span>5 kg</span>
+            <div class="d-step-arrow">▼</div>
+          </div>
+          <div class="d-step-body">
+            <div class="weight-visual">
+              <span class="weight-cake-display" id="wCake">🎂</span>
+              <div>
+                <div class="weight-num-big"><span id="wNum">1</span> kg</div>
+                <div class="weight-serve">Serves ~<span id="wPeople">8</span> people</div>
+              </div>
+            </div>
+            <input type="range" class="weight-slider" id="wSlider" min="1" max="6" value="1" step="0.5"/>
+            <div class="weight-scale">
+              <span>0.5 kg</span><span>1 kg</span><span>1.5 kg</span>
+              <span>2 kg</span><span>3 kg</span><span>4 kg</span><span>5+ kg</span>
+            </div>
+            <div style="margin-top:16px;padding:14px 18px;background:var(--cream);border-radius:var(--r2);font-size:.88rem;color:var(--brown3);">
+              💡 <strong>Not sure?</strong> 1 kg is perfect for 6–10 people. 2 kg for 12–20. 3+ kg for big parties.
             </div>
           </div>
         </div>
 
-        <!-- Step 2: Flavour -->
-        <div class="d-section">
-          <div class="d-section-title">Step 2 — Flavour</div>
-          <div class="d-chips" id="flavourOptions">
-            <div class="d-chip selected" data-val="Chocolate" data-add="0">🍫 Chocolate</div>
-            <div class="d-chip" data-val="Red Velvet" data-add="60">🔴 Red Velvet</div>
-            <div class="d-chip" data-val="Vanilla" data-add="0">🍦 Vanilla</div>
-            <div class="d-chip" data-val="Mango" data-add="80">🥭 Mango</div>
-            <div class="d-chip" data-val="Butterscotch" data-add="50">🍬 Butterscotch</div>
-            <div class="d-chip" data-val="Black Forest" data-add="70">🌲 Black Forest</div>
-            <div class="d-chip" data-val="Pineapple" data-add="40">🍍 Pineapple</div>
-            <div class="d-chip" data-val="Strawberry" data-add="60">🍓 Strawberry</div>
+        <!-- STEP 2: FLAVOUR -->
+        <div class="d-step" id="step2">
+          <div class="d-step-header" onclick="toggleStep('step2')">
+            <div class="d-step-num" id="sn2">2</div>
+            <div>
+              <div class="d-step-title">Cake Flavour</div>
+              <div class="d-step-summary" id="sum2">Choose your favourite taste</div>
+            </div>
+            <div class="d-step-arrow">▼</div>
+          </div>
+          <div class="d-step-body">
+            <div class="opt-grid opt-grid-4" id="flavourGrid">
+              <div class="opt-card" data-val="Chocolate" data-add="0" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🍫</span>
+                <span class="opt-label">Chocolate</span>
+                <span class="opt-sub">Classic & rich</span>
+              </div>
+              <div class="opt-card" data-val="Red Velvet" data-add="60" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🔴</span>
+                <span class="opt-label">Red Velvet</span>
+                <span class="opt-sub">Velvety & smooth</span>
+                <span class="price-badge">+₹60</span>
+              </div>
+              <div class="opt-card" data-val="Vanilla" data-add="0" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🍦</span>
+                <span class="opt-label">Vanilla</span>
+                <span class="opt-sub">Light & classic</span>
+              </div>
+              <div class="opt-card" data-val="Mango" data-add="80" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🥭</span>
+                <span class="opt-label">Mango</span>
+                <span class="opt-sub">Fruity & fresh</span>
+                <span class="price-badge">+₹80</span>
+              </div>
+              <div class="opt-card" data-val="Butterscotch" data-add="50" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🍬</span>
+                <span class="opt-label">Butterscotch</span>
+                <span class="opt-sub">Sweet caramel notes</span>
+                <span class="price-badge">+₹50</span>
+              </div>
+              <div class="opt-card" data-val="Black Forest" data-add="70" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🌲</span>
+                <span class="opt-label">Black Forest</span>
+                <span class="opt-sub">Chocolate & cherry</span>
+                <span class="price-badge">+₹70</span>
+              </div>
+              <div class="opt-card" data-val="Strawberry" data-add="60" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🍓</span>
+                <span class="opt-label">Strawberry</span>
+                <span class="opt-sub">Fresh & fruity</span>
+                <span class="price-badge">+₹60</span>
+              </div>
+              <div class="opt-card" data-val="Pineapple" data-add="40" onclick="selectOpt(this,'flavourGrid','flavour')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🍍</span>
+                <span class="opt-label">Pineapple</span>
+                <span class="opt-sub">Tropical & tangy</span>
+                <span class="price-badge">+₹40</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Step 3: Shape -->
-        <div class="d-section">
-          <div class="d-section-title">Step 3 — Shape</div>
-          <div class="d-chips" id="shapeOptions">
-            <div class="d-chip selected" data-val="Round" data-add="0">🔵 Round</div>
-            <div class="d-chip" data-val="Square" data-add="40">⬛ Square</div>
-            <div class="d-chip" data-val="Heart" data-add="100">❤️ Heart</div>
-            <div class="d-chip" data-val="Rectangle" data-add="30">▬ Rectangle</div>
-            <div class="d-chip" data-val="Custom" data-add="200">✨ Custom Shape</div>
+        <!-- STEP 3: SHAPE -->
+        <div class="d-step" id="step3">
+          <div class="d-step-header" onclick="toggleStep('step3')">
+            <div class="d-step-num" id="sn3">3</div>
+            <div>
+              <div class="d-step-title">Cake Shape</div>
+              <div class="d-step-summary" id="sum3">Choose how it looks</div>
+            </div>
+            <div class="d-step-arrow">▼</div>
+          </div>
+          <div class="d-step-body">
+            <div class="opt-grid opt-grid-3" id="shapeGrid" style="margin-bottom:12px;">
+              <div class="opt-card" data-val="Round" data-add="0" onclick="selectOpt(this,'shapeGrid','shape')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🔵</span>
+                <span class="opt-label">Round</span>
+                <span class="opt-sub">Classic style</span>
+              </div>
+              <div class="opt-card" data-val="Square" data-add="40" onclick="selectOpt(this,'shapeGrid','shape')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">⬛</span>
+                <span class="opt-label">Square</span>
+                <span class="opt-sub">Modern look</span>
+                <span class="price-badge">+₹40</span>
+              </div>
+              <div class="opt-card" data-val="Heart" data-add="100" onclick="selectOpt(this,'shapeGrid','shape')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">❤️</span>
+                <span class="opt-label">Heart</span>
+                <span class="opt-sub">Perfect for love</span>
+                <span class="price-badge">+₹100</span>
+              </div>
+              <div class="opt-card" data-val="Rectangle" data-add="30" onclick="selectOpt(this,'shapeGrid','shape')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">▬</span>
+                <span class="opt-label">Rectangle</span>
+                <span class="opt-sub">Great for crowds</span>
+                <span class="price-badge">+₹30</span>
+              </div>
+              <div class="opt-card" data-val="Star" data-add="120" onclick="selectOpt(this,'shapeGrid','shape')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">⭐</span>
+                <span class="opt-label">Star</span>
+                <span class="opt-sub">For the star of the show</span>
+                <span class="price-badge">+₹120</span>
+              </div>
+              <div class="opt-card" data-val="Custom" data-add="200" onclick="selectOpt(this,'shapeGrid','shape')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">✨</span>
+                <span class="opt-label">Custom</span>
+                <span class="opt-sub">Tell us your idea</span>
+                <span class="price-badge">+₹200</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Step 4: Theme -->
-        <div class="d-section">
-          <div class="d-section-title">Step 4 — Theme</div>
-          <div class="d-chips" id="themeOptions">
-            <div class="d-chip selected" data-val="Classic" data-add="0">🎂 Classic</div>
-            <div class="d-chip" data-val="Birthday" data-add="50">🎉 Birthday</div>
-            <div class="d-chip" data-val="Wedding" data-add="150">💍 Wedding</div>
-            <div class="d-chip" data-val="Floral" data-add="100">🌸 Floral</div>
-            <div class="d-chip" data-val="Cartoon" data-add="120">🦸 Cartoon</div>
-            <div class="d-chip" data-val="Minimalist" data-add="80">✦ Minimalist</div>
-            <div class="d-chip" data-val="Galaxy" data-add="130">🌌 Galaxy</div>
-            <div class="d-chip" data-val="Flamenco" data-add="90">💃 Flamenco</div>
+        <!-- STEP 4: THEME -->
+        <div class="d-step" id="step4">
+          <div class="d-step-header" onclick="toggleStep('step4')">
+            <div class="d-step-num" id="sn4">4</div>
+            <div>
+              <div class="d-step-title">Cake Theme</div>
+              <div class="d-step-summary" id="sum4">Pick the style & occasion</div>
+            </div>
+            <div class="d-step-arrow">▼</div>
+          </div>
+          <div class="d-step-body">
+            <div class="opt-grid opt-grid-4" id="themeGrid">
+              <div class="opt-card" data-val="Classic" data-add="0" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🎂</span>
+                <span class="opt-label">Classic</span>
+                <span class="opt-sub">Timeless design</span>
+              </div>
+              <div class="opt-card" data-val="Birthday" data-add="50" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🎉</span>
+                <span class="opt-label">Birthday</span>
+                <span class="opt-sub">Colourful & fun</span>
+                <span class="price-badge">+₹50</span>
+              </div>
+              <div class="opt-card" data-val="Wedding" data-add="150" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">💍</span>
+                <span class="opt-label">Wedding</span>
+                <span class="opt-sub">Elegant & formal</span>
+                <span class="price-badge">+₹150</span>
+              </div>
+              <div class="opt-card" data-val="Floral" data-add="100" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🌸</span>
+                <span class="opt-label">Floral</span>
+                <span class="opt-sub">Beautiful blooms</span>
+                <span class="price-badge">+₹100</span>
+              </div>
+              <div class="opt-card" data-val="Kids / Cartoon" data-add="120" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🦸</span>
+                <span class="opt-label">Kids / Cartoon</span>
+                <span class="opt-sub">Characters & fun</span>
+                <span class="price-badge">+₹120</span>
+              </div>
+              <div class="opt-card" data-val="Minimalist" data-add="80" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">✦</span>
+                <span class="opt-label">Minimalist</span>
+                <span class="opt-sub">Clean & simple</span>
+                <span class="price-badge">+₹80</span>
+              </div>
+              <div class="opt-card" data-val="Galaxy" data-add="130" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🌌</span>
+                <span class="opt-label">Galaxy</span>
+                <span class="opt-sub">Out of this world</span>
+                <span class="price-badge">+₹130</span>
+              </div>
+              <div class="opt-card" data-val="Tropical" data-add="90" onclick="selectOpt(this,'themeGrid','theme')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🌴</span>
+                <span class="opt-label">Tropical</span>
+                <span class="opt-sub">Summer vibes</span>
+                <span class="price-badge">+₹90</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Step 5: Layers -->
-        <div class="d-section">
-          <div class="d-section-title">Step 5 — Layers & Tiers</div>
-          <div class="d-chips" id="tierOptions">
-            <div class="d-chip selected" data-val="1 Tier" data-add="0">1 Tier</div>
-            <div class="d-chip" data-val="2 Tiers" data-add="300">2 Tiers</div>
-            <div class="d-chip" data-val="3 Tiers" data-add="700">3 Tiers</div>
+        <!-- STEP 5: FROSTING & TIERS -->
+        <div class="d-step" id="step5">
+          <div class="d-step-header" onclick="toggleStep('step5')">
+            <div class="d-step-num" id="sn5">5</div>
+            <div>
+              <div class="d-step-title">Frosting &amp; Tiers</div>
+              <div class="d-step-summary" id="sum5">Finish and height</div>
+            </div>
+            <div class="d-step-arrow">▼</div>
+          </div>
+          <div class="d-step-body">
+            <p style="font-size:.88rem;font-weight:700;color:var(--brown3);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;">Frosting Type</p>
+            <div class="opt-grid opt-grid-3" id="frostGrid" style="margin-bottom:24px;">
+              <div class="opt-card" data-val="Buttercream" data-add="0" onclick="selectOpt(this,'frostGrid','frost')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🧈</span>
+                <span class="opt-label">Buttercream</span>
+                <span class="opt-sub">Classic & smooth</span>
+              </div>
+              <div class="opt-card" data-val="Fondant" data-add="80" onclick="selectOpt(this,'frostGrid','frost')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🍬</span>
+                <span class="opt-label">Fondant</span>
+                <span class="opt-sub">Polished look</span>
+                <span class="price-badge">+₹80</span>
+              </div>
+              <div class="opt-card" data-val="Whipped Cream" data-add="0" onclick="selectOpt(this,'frostGrid','frost')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🤍</span>
+                <span class="opt-label">Whipped Cream</span>
+                <span class="opt-sub">Light & airy</span>
+              </div>
+              <div class="opt-card" data-val="Ganache" data-add="60" onclick="selectOpt(this,'frostGrid','frost')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🍫</span>
+                <span class="opt-label">Ganache</span>
+                <span class="opt-sub">Chocolate gloss</span>
+                <span class="price-badge">+₹60</span>
+              </div>
+              <div class="opt-card" data-val="Mirror Glaze" data-add="120" onclick="selectOpt(this,'frostGrid','frost')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">✨</span>
+                <span class="opt-label">Mirror Glaze</span>
+                <span class="opt-sub">Shiny & stunning</span>
+                <span class="price-badge">+₹120</span>
+              </div>
+            </div>
+            <p style="font-size:.88rem;font-weight:700;color:var(--brown3);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;">Number of Tiers</p>
+            <div class="opt-grid opt-grid-3" id="tierGrid">
+              <div class="opt-card" data-val="1 Tier" data-add="0" onclick="selectOpt(this,'tierGrid','tier')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🎂</span>
+                <span class="opt-label">1 Tier</span>
+                <span class="opt-sub">Up to 20 people</span>
+              </div>
+              <div class="opt-card" data-val="2 Tiers" data-add="300" onclick="selectOpt(this,'tierGrid','tier')">
+                <div class="check">✓</div>
+                <span class="opt-emoji" style="font-size:1.8rem;line-height:1.2;">🎂<br style="line-height:0"/>🎂</span>
+                <span class="opt-label">2 Tiers</span>
+                <span class="opt-sub">20–40 people</span>
+                <span class="price-badge">+₹300</span>
+              </div>
+              <div class="opt-card" data-val="3 Tiers" data-add="700" onclick="selectOpt(this,'tierGrid','tier')">
+                <div class="check">✓</div>
+                <span class="opt-emoji" style="font-size:1.4rem;line-height:1.3;">🎂<br/>🎂<br/>🎂</span>
+                <span class="opt-label">3 Tiers</span>
+                <span class="opt-sub">40+ people</span>
+                <span class="price-badge">+₹700</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Step 6: Frosting -->
-        <div class="d-section">
-          <div class="d-section-title">Step 6 — Frosting</div>
-          <div class="d-chips" id="frostingOptions">
-            <div class="d-chip selected" data-val="Buttercream" data-add="0">Buttercream</div>
-            <div class="d-chip" data-val="Fondant" data-add="80">Fondant</div>
-            <div class="d-chip" data-val="Whipped Cream" data-add="0">Whipped Cream</div>
-            <div class="d-chip" data-val="Ganache" data-add="60">Ganache</div>
-            <div class="d-chip" data-val="Mirror Glaze" data-add="120">Mirror Glaze ✨</div>
+        <!-- STEP 6: ADD-ONS -->
+        <div class="d-step" id="step6">
+          <div class="d-step-header" onclick="toggleStep('step6')">
+            <div class="d-step-num" id="sn6">6</div>
+            <div>
+              <div class="d-step-title">Add-ons <span style="font-size:.8rem;font-weight:600;color:var(--brown3);">(select any)</span></div>
+              <div class="d-step-summary" id="sum6">Extra decorations & features</div>
+            </div>
+            <div class="d-step-arrow">▼</div>
+          </div>
+          <div class="d-step-body">
+            <div style="display:flex;flex-direction:column;gap:10px;" id="addonsContainer">
+              <div class="toggle-card" data-val="Flowers" data-add="80" onclick="toggleAddon(this)">
+                <span class="t-icon">🌸</span>
+                <div class="t-info"><div class="t-name">Fresh Edible Flowers</div><div class="t-desc">Beautiful pressed flowers on top of your cake</div></div>
+                <div class="t-price">+₹80</div>
+                <div class="t-check"></div>
+              </div>
+              <div class="toggle-card" data-val="Photo Print" data-add="120" onclick="toggleAddon(this)">
+                <span class="t-icon">📸</span>
+                <div class="t-info"><div class="t-name">Photo Print</div><div class="t-desc">Your favourite photo printed on edible paper</div></div>
+                <div class="t-price">+₹120</div>
+                <div class="t-check"></div>
+              </div>
+              <div class="toggle-card" data-val="Candles" data-add="30" onclick="toggleAddon(this)">
+                <span class="t-icon">🕯️</span>
+                <div class="t-info"><div class="t-name">Birthday Candles</div><div class="t-desc">Colourful candles matching your theme</div></div>
+                <div class="t-price">+₹30</div>
+                <div class="t-check"></div>
+              </div>
+              <div class="toggle-card" data-val="Chocolate Drip" data-add="60" onclick="toggleAddon(this)">
+                <span class="t-icon">🍫</span>
+                <div class="t-info"><div class="t-name">Chocolate Drip Effect</div><div class="t-desc">Gorgeous chocolate drips along the sides</div></div>
+                <div class="t-price">+₹60</div>
+                <div class="t-check"></div>
+              </div>
+              <div class="toggle-card" data-val="Macarons" data-add="100" onclick="toggleAddon(this)">
+                <span class="t-icon">🍥</span>
+                <div class="t-info"><div class="t-name">French Macarons on Top</div><div class="t-desc">3 colourful macarons placed on the cake top</div></div>
+                <div class="t-price">+₹100</div>
+                <div class="t-check"></div>
+              </div>
+              <div class="toggle-card" data-val="Fresh Fruit" data-add="90" onclick="toggleAddon(this)">
+                <span class="t-icon">🍓</span>
+                <div class="t-info"><div class="t-name">Fresh Fruit Topping</div><div class="t-desc">Seasonal fresh fruits arranged on top</div></div>
+                <div class="t-price">+₹90</div>
+                <div class="t-check"></div>
+              </div>
+              <div class="toggle-card" data-val="Gold Leaf" data-add="150" onclick="toggleAddon(this)">
+                <span class="t-icon">✨</span>
+                <div class="t-info"><div class="t-name">Edible Gold Leaf</div><div class="t-desc">Luxurious gold accents for a premium look</div></div>
+                <div class="t-price">+₹150</div>
+                <div class="t-check"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Step 7: Add-ons -->
-        <div class="d-section">
-          <div class="d-section-title">Step 7 — Add-ons (select multiple)</div>
-          <div class="d-chips" id="addonOptions">
-            <div class="d-chip" data-val="Flowers" data-add="80">🌸 Flowers (+₹80)</div>
-            <div class="d-chip" data-val="Photo Print" data-add="120">📸 Photo Print (+₹120)</div>
-            <div class="d-chip" data-val="Candles" data-add="30">🕯️ Candles (+₹30)</div>
-            <div class="d-chip" data-val="Ribbon" data-add="20">🎀 Ribbon (+₹20)</div>
-            <div class="d-chip" data-val="Drip" data-add="60">🍫 Drip Effect (+₹60)</div>
-            <div class="d-chip" data-val="Macarons" data-add="100">🍥 Macarons (+₹100)</div>
-            <div class="d-chip" data-val="Fresh Fruit" data-add="90">🍓 Fresh Fruit (+₹90)</div>
+        <!-- STEP 7: MESSAGE + DELIVERY -->
+        <div class="d-step" id="step7">
+          <div class="d-step-header" onclick="toggleStep('step7')">
+            <div class="d-step-num" id="sn7">7</div>
+            <div>
+              <div class="d-step-title">Message &amp; Delivery</div>
+              <div class="d-step-summary" id="sum7">Final touches</div>
+            </div>
+            <div class="d-step-arrow">▼</div>
+          </div>
+          <div class="d-step-body">
+            <p style="font-size:.9rem;font-weight:700;margin-bottom:10px;color:var(--brown);">Your personalised message on the cake:</p>
+            <textarea class="d-msg-area" id="msgInput" rows="3" maxlength="80"
+              placeholder="e.g. Happy Birthday Priya! 🎉 Lots of love, Mum &amp; Dad"></textarea>
+            <div class="d-msg-counter"><span id="msgCount">0</span>/80 characters</div>
+
+            <p style="font-size:.9rem;font-weight:700;margin:20px 0 12px;color:var(--brown);">How would you like to receive it?</p>
+            <div class="opt-grid opt-grid-2" id="deliverGrid">
+              <div class="opt-card" data-val="Pickup" data-add="0" onclick="selectOpt(this,'deliverGrid','deliver')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🏪</span>
+                <span class="opt-label">Bakery Pickup</span>
+                <span class="opt-sub">Collect it yourself — free</span>
+              </div>
+              <div class="opt-card" data-val="Home Delivery" data-add="60" onclick="selectOpt(this,'deliverGrid','deliver')">
+                <div class="check">✓</div>
+                <span class="opt-emoji">🚚</span>
+                <span class="opt-label">Home Delivery</span>
+                <span class="opt-sub">Delivered to your door</span>
+                <span class="price-badge">+₹60</span>
+              </div>
+            </div>
+
+            <button class="btn btn-orange btn-lg" style="width:100%;justify-content:center;margin-top:28px;" onclick="openOrderModal()">
+              🎂 &nbsp;Find Bakeries &amp; Order
+            </button>
           </div>
         </div>
 
-        <!-- Step 8: Message -->
-        <div class="d-section">
-          <div class="d-section-title">Step 8 — Personalised Message</div>
-          <textarea class="message-input" id="cakeMessage" rows="3" placeholder="e.g. Happy Birthday Priya! 🎉 Love always, Mum" maxlength="80"></textarea>
-          <div style="font-size:0.78rem;color:var(--brown3);margin-top:8px;text-align:right;"><span id="charCount">0</span>/80 characters</div>
-        </div>
+      </div><!-- end d-step-wrap -->
 
-        <!-- Step 9: Delivery -->
-        <div class="d-section">
-          <div class="d-section-title">Step 9 — Delivery Option</div>
-          <div class="d-chips" id="deliveryOptions">
-            <div class="d-chip selected" data-val="Pickup" data-add="0">🏪 Pickup (Free)</div>
-            <div class="d-chip" data-val="Delivery" data-add="60">🚚 Home Delivery (+₹60)</div>
-          </div>
-        </div>
-
-        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;" onclick="proceedToOrder()">
-          🎂 &nbsp;Find Bakeries & Order
-        </button>
-      </div>
-
-      <!-- Right: Preview -->
+      <!-- ════ RIGHT: Preview Panel ════ -->
       <div>
-        <div class="cake-preview-panel">
-          <div style="text-align:center;margin-bottom:4px;">
-            <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--brown3);">Live Preview</div>
-          </div>
-          <span class="preview-cake" id="cakeEmoji">🎂</span>
-          <div id="cakeLabel" style="text-align:center;color:var(--brown3);font-size:0.88rem;margin-bottom:8px;">Chocolate · Round · Classic</div>
+        <div class="preview-panel">
+          <div class="prev-label-top">Your Cake Preview</div>
+          <span class="prev-cake" id="prevEmoji">🎂</span>
+          <div class="prev-flavour" id="prevFlavour">Chocolate · Round · Classic</div>
+          <div class="prev-price-big" id="prevPrice">₹699 <small>est.</small></div>
 
-          <div class="preview-price" id="previewTotalPrice">₹699 <small>est. price</small></div>
-
-          <div class="preview-details" id="previewDetails">
-            <div class="preview-row">
-              <span class="preview-key">Weight</span>
-              <span class="preview-val" id="pv-weight">1 kg</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Flavour</span>
-              <span class="preview-val" id="pv-flavour">Chocolate</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Shape</span>
-              <span class="preview-val" id="pv-shape">Round</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Theme</span>
-              <span class="preview-val" id="pv-theme">Classic</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Tiers</span>
-              <span class="preview-val" id="pv-tier">1 Tier</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Frosting</span>
-              <span class="preview-val" id="pv-frosting">Buttercream</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Add-ons</span>
-              <span class="preview-val" id="pv-addons">None</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Message</span>
-              <span class="preview-val" id="pv-message" style="font-size:0.82rem;text-align:right;max-width:160px;">—</span>
-            </div>
-            <div class="preview-row">
-              <span class="preview-key">Delivery</span>
-              <span class="preview-val" id="pv-delivery">Pickup</span>
-            </div>
+          <div class="prev-prog">
+            <div class="prev-prog-lbl"><span>Completion</span><strong id="prevPct">14%</strong></div>
+            <div class="prev-prog-bar"><div class="prev-prog-fill" id="prevProgFill" style="width:14%;"></div></div>
           </div>
 
-          <button class="btn btn-orange" style="width:100%;justify-content:center;" onclick="proceedToOrder()">
-            Order Now →
+          <div class="prev-rows">
+            <div class="prev-row"><span class="prev-k">Weight</span><span class="prev-v" id="pv-w">1 kg</span></div>
+            <div class="prev-row"><span class="prev-k">Flavour</span><span class="prev-v" id="pv-f">Chocolate</span></div>
+            <div class="prev-row"><span class="prev-k">Shape</span><span class="prev-v" id="pv-sh">Not chosen yet</span></div>
+            <div class="prev-row"><span class="prev-k">Theme</span><span class="prev-v" id="pv-th">Not chosen yet</span></div>
+            <div class="prev-row"><span class="prev-k">Frosting</span><span class="prev-v" id="pv-fr">Not chosen yet</span></div>
+            <div class="prev-row"><span class="prev-k">Tiers</span><span class="prev-v" id="pv-ti">Not chosen yet</span></div>
+            <div class="prev-row"><span class="prev-k">Add-ons</span><span class="prev-v" id="pv-ad">None</span></div>
+            <div class="prev-row"><span class="prev-k">Message</span><span class="prev-v" id="pv-ms">—</span></div>
+            <div class="prev-row"><span class="prev-k">Delivery</span><span class="prev-v" id="pv-de">Not chosen yet</span></div>
+          </div>
+
+          <button class="btn btn-orange" style="width:100%;justify-content:center;" onclick="openOrderModal()">
+            Place Order →
           </button>
-          <div style="text-align:center;margin-top:12px;font-size:0.78rem;color:var(--brown3);">🔒 100% Secure Payment · Free Cancellation</div>
-        </div>
-
-        <!-- Tip box -->
-        <div style="background:linear-gradient(135deg,#FDE8D0,#FAF5EC);border-radius:var(--radius);padding:24px;margin-top:24px;">
-          <div style="font-weight:700;margin-bottom:8px;font-size:0.9rem;">💡 Pro Tip</div>
-          <p style="font-size:0.85rem;color:var(--brown2);">Order at least <strong>48 hours in advance</strong> to give your bakery enough time to craft the perfect custom cake. For 3-tier or photo cakes, 72 hours is recommended.</p>
+          <p style="text-align:center;font-size:.72rem;color:rgba(255,255,255,.3);margin-top:12px;">🔒 Secure Payment · Free Cancellation</p>
+          <div class="prev-tip">💡 <strong style="color:rgba(255,255,255,.7);">Pro tip:</strong> Order at least 48 hours in advance. Photo & 3-tier cakes need 72 hours.</div>
         </div>
       </div>
     </div>
@@ -251,194 +495,187 @@
 </section>
 
 <!-- ORDER MODAL -->
-<div class="modal-overlay" id="orderModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('orderModal')">✕</button>
-
-    <div id="orderForm">
-      <div style="font-size:3rem;margin-bottom:12px;">🎂</div>
-      <h3>Almost There!</h3>
-      <p>Enter your details and we'll find the best bakeries near you for your custom cake.</p>
-
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" id="userName" placeholder="e.g. Priya Sharma" />
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" id="userPhone" placeholder="+91 98765 43210" />
-      </div>
-      <div class="form-group">
-        <label>Delivery / Pickup City</label>
-        <input type="text" id="userCity" placeholder="e.g. Mumbai" />
-      </div>
-      <div class="form-group">
-        <label>Delivery Date</label>
-        <input type="date" id="userDate" />
-      </div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitOrder()">
-        Find Bakeries Near Me →
-      </button>
+<div class="modal-bg" id="orderModal">
+  <div class="modal-box">
+    <button class="modal-x" onclick="document.getElementById('orderModal').classList.remove('open')">✕</button>
+    <div id="oForm">
+      <div style="font-size:3rem;margin-bottom:14px;">🎂</div>
+      <h3 style="margin-bottom:8px;">Almost There!</h3>
+      <p style="margin-bottom:28px;font-size:.95rem;">Fill in your details and we'll match you with the best nearby bakeries for your design.</p>
+      <div class="form-field"><label>Your Name</label><input type="text" id="oName" placeholder="e.g. Priya Sharma"/></div>
+      <div class="form-field"><label>Phone Number</label><input type="tel" id="oPhone" placeholder="+91 98765 43210"/></div>
+      <div class="form-field"><label>Delivery City</label><input type="text" id="oCity" placeholder="e.g. Mumbai"/></div>
+      <div class="form-field"><label>Delivery Date</label><input type="date" id="oDate"/></div>
+      <button class="btn btn-orange" style="width:100%;justify-content:center;" onclick="submitOrder()">🎂 Find Bakeries &amp; Confirm →</button>
     </div>
-
-    <div class="success-msg" id="orderSuccess">
-      <span class="success-icon">🎉</span>
-      <h3>Order Request Sent!</h3>
-      <p>We've received your cake design and are matching you with the best nearby bakeries. You'll receive a confirmation on your phone shortly.</p>
-      <a href="bakeries.html" class="btn btn-orange" style="margin-top:20px;">Browse Partner Bakeries →</a>
+    <div class="success-block" id="oSuccess">
+      <span class="success-ico">🎉</span>
+      <h3>Order Sent!</h3>
+      <p style="margin-bottom:24px;">We're matching you with nearby bakeries now. Expect a call within 30 minutes.</p>
+      <a href="bakeries.html" class="btn btn-orange">Browse Bakeries →</a>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast">
-  <span class="toast-icon">✨</span>
-  <span id="toastMsg">Selection updated!</span>
-</div>
-
+<div class="toast" id="toast"><span>✅</span><span id="toastMsg">Updated!</span></div>
 <script src="script.js"></script>
 <script>
-// ===== DESIGNER PAGE LOGIC =====
-const BASE_PRICE_PER_KG = 599;
-const cakeEmojis = {
-  Chocolate: '🍫', 'Red Velvet': '🔴', Vanilla: '🍦', Mango: '🥭',
-  Butterscotch: '🍬', 'Black Forest': '🌲', Pineapple: '🍍', Strawberry: '🍓'
-};
+// ═══ DESIGNER LOGIC ═══
+const BASE = 599;
+const EMOJIS = { Chocolate:'🍫','Red Velvet':'🔴',Vanilla:'🍦',Mango:'🥭',Butterscotch:'🍬','Black Forest':'🌲',Strawberry:'🍓',Pineapple:'🍍' };
 
-let state = {
+let S = {
   weight: 1,
-  flavour: { val: 'Chocolate', add: 0 },
-  shape:   { val: 'Round', add: 0 },
-  theme:   { val: 'Classic', add: 0 },
-  tier:    { val: '1 Tier', add: 0 },
-  frosting:{ val: 'Buttercream', add: 0 },
+  flavour: { v: 'Chocolate', a: 0 },
+  shape:   null,
+  theme:   null,
+  frost:   null,
+  tier:    null,
   addons:  [],
-  message: '',
-  delivery:{ val: 'Pickup', add: 0 }
+  msg:     '',
+  deliver: null
 };
-
-let completedSteps = new Set([]);
+let doneSteps = new Set(['weight']);
 
 function calcPrice() {
-  const base = Math.round(BASE_PRICE_PER_KG * state.weight);
-  const addonTotal = state.addons.reduce((s, a) => s + a.add, 0);
-  return base + state.flavour.add + state.shape.add + state.theme.add +
-         state.tier.add + state.frosting.add + addonTotal + state.delivery.add;
+  let p = Math.round(BASE * S.weight);
+  if(S.flavour) p += S.flavour.a;
+  if(S.shape)   p += S.shape.a;
+  if(S.theme)   p += S.theme.a;
+  if(S.frost)   p += S.frost.a;
+  if(S.tier)    p += S.tier.a;
+  if(S.deliver) p += S.deliver.a;
+  p += S.addons.reduce((t,a) => t + a.a, 0);
+  return p;
 }
 
 function updatePreview() {
-  const price = calcPrice();
-  document.getElementById('previewTotalPrice').innerHTML = `₹${price.toLocaleString('en-IN')} <small>est. price</small>`;
-  document.getElementById('pv-weight').textContent = state.weight + ' kg';
-  document.getElementById('pv-flavour').textContent = state.flavour.val;
-  document.getElementById('pv-shape').textContent = state.shape.val;
-  document.getElementById('pv-theme').textContent = state.theme.val;
-  document.getElementById('pv-tier').textContent = state.tier.val;
-  document.getElementById('pv-frosting').textContent = state.frosting.val;
-  document.getElementById('pv-addons').textContent = state.addons.length ? state.addons.map(a=>a.val).join(', ') : 'None';
-  document.getElementById('pv-message').textContent = state.message || '—';
-  document.getElementById('pv-delivery').textContent = state.delivery.val;
-  const emoji = cakeEmojis[state.flavour.val] || '🎂';
-  document.getElementById('cakeEmoji').textContent = emoji;
-  document.getElementById('cakeLabel').textContent = `${state.flavour.val} · ${state.shape.val} · ${state.theme.val}`;
-  updateProgress();
+  document.getElementById('prevPrice').innerHTML = `₹${calcPrice().toLocaleString('en-IN')} <small>est.</small>`;
+  document.getElementById('prevEmoji').textContent = EMOJIS[S.flavour?.v] || '🎂';
+  document.getElementById('prevFlavour').textContent = [S.flavour?.v, S.shape?.v, S.theme?.v].filter(Boolean).join(' · ') || '—';
+  document.getElementById('pv-w').textContent  = S.weight + ' kg';
+  document.getElementById('pv-f').textContent  = S.flavour?.v || '—';
+  document.getElementById('pv-sh').textContent = S.shape?.v   || 'Not chosen yet';
+  document.getElementById('pv-th').textContent = S.theme?.v   || 'Not chosen yet';
+  document.getElementById('pv-fr').textContent = S.frost?.v   || 'Not chosen yet';
+  document.getElementById('pv-ti').textContent = S.tier?.v    || 'Not chosen yet';
+  document.getElementById('pv-ad').textContent = S.addons.length ? S.addons.map(a=>a.v).join(', ') : 'None';
+  document.getElementById('pv-ms').textContent = S.msg || '—';
+  document.getElementById('pv-de').textContent = S.deliver?.v  || 'Not chosen yet';
+  // progress
+  const total = 7; // weight, flavour, shape, theme, frost+tier as one, addons, msg+deliver
+  const frostDone = S.frost && S.tier;
+  const msgDone = S.deliver;
+  let d = 0;
+  if(doneSteps.has('weight'))  d++;
+  if(S.flavour?.v) d++;
+  if(S.shape) d++;
+  if(S.theme) d++;
+  if(frostDone) d++;
+  if(S.addons.length >= 0 && doneSteps.has('addons')) d++;
+  if(msgDone) d++;
+  const pct = Math.min(100, Math.round(d / total * 100));
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('progPct').textContent = pct + '% Complete';
+  document.getElementById('prevProgFill').style.width = pct + '%';
+  document.getElementById('prevPct').textContent = pct + '%';
 }
 
-function updateProgress() {
-  const total = 9;
-  const done = completedSteps.size;
-  const pct = Math.round((done / total) * 100);
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('progressPct').textContent = pct + '% Complete';
-}
+// Single-select option cards
+window.selectOpt = function(card, gridId, key) {
+  document.getElementById(gridId).querySelectorAll('.opt-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  S[key] = { v: card.dataset.val, a: parseInt(card.dataset.add) };
+  doneSteps.add(key);
+  // Update step summaries
+  const labels = { flavour:'sum2', shape:'sum3', theme:'sum4', frost:'sum5', tier:'sum5', deliver:'sum7' };
+  if(labels[key]) {
+    const el = document.getElementById(labels[key]);
+    if(el) el.textContent = card.dataset.val;
+  }
+  // Mark step done
+  const stepNums = { flavour:2, shape:3, theme:4, frost:5, tier:5, deliver:7 };
+  if(stepNums[key]) markStepDone(stepNums[key]);
+  updatePreview();
+  showToast(card.dataset.val + ' selected ✓');
+};
 
-function setupSingleChips(containerId, stateKey) {
-  document.getElementById(containerId).querySelectorAll('.d-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.getElementById(containerId).querySelectorAll('.d-chip').forEach(c => c.classList.remove('selected'));
-      chip.classList.add('selected');
-      state[stateKey] = { val: chip.dataset.val, add: parseInt(chip.dataset.add) };
-      completedSteps.add(containerId);
-      updatePreview();
-      showToast(`${chip.dataset.val} selected ✓`);
-    });
-  });
-}
-
-function setupMultiChips(containerId) {
-  document.getElementById(containerId).querySelectorAll('.d-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      chip.classList.toggle('selected');
-      const val = chip.dataset.val;
-      const add = parseInt(chip.dataset.add);
-      if (chip.classList.contains('selected')) {
-        state.addons.push({ val, add });
-      } else {
-        state.addons = state.addons.filter(a => a.val !== val);
-      }
-      if (state.addons.length > 0) completedSteps.add(containerId);
-      else completedSteps.delete(containerId);
-      updatePreview();
-    });
-  });
-}
+// Multi-select toggles (add-ons)
+window.toggleAddon = function(card) {
+  card.classList.toggle('selected');
+  const v = card.dataset.val, a = parseInt(card.dataset.add);
+  if(card.classList.contains('selected')) S.addons.push({v,a});
+  else S.addons = S.addons.filter(x => x.v !== v);
+  doneSteps.add('addons');
+  const count = S.addons.length;
+  document.getElementById('sum6').textContent = count ? `${count} add-on${count>1?'s':''} selected` : 'Extra decorations & features';
+  markStepDone(6);
+  updatePreview();
+};
 
 // Weight slider
-const ws = document.getElementById('weightSlider');
+const ws = document.getElementById('wSlider');
 ws.addEventListener('input', () => {
   const v = parseFloat(ws.value);
-  state.weight = v;
-  document.getElementById('weightVal').textContent = v;
-  document.getElementById('servingVal').textContent = Math.round(v * 8);
-  const pct = ((v - 1) / (5 - 1)) * 100;
+  S.weight = v;
+  document.getElementById('wNum').textContent = v;
+  document.getElementById('wPeople').textContent = Math.round(v * 8);
+  document.getElementById('sum1').textContent = v + ' kg — serves ~' + Math.round(v * 8) + ' people';
+  // cake size visual
+  const sizes = {1:'2.5rem',1.5:'3rem',2:'3.5rem',2.5:'4rem',3:'4.5rem',3.5:'5rem',4:'5.5rem',4.5:'6rem',5:'6.5rem',5.5:'7rem',6:'7.5rem'};
+  document.getElementById('wCake').style.fontSize = sizes[v] || '3rem';
+  // slider gradient
+  const pct = (v - 1) / (6 - 1) * 100;
   ws.style.background = `linear-gradient(to right, var(--orange) 0%, var(--orange) ${pct}%, var(--cream2) ${pct}%, var(--cream2) 100%)`;
-  completedSteps.add('weightSlider');
+  doneSteps.add('weight');
+  markStepDone(1);
   updatePreview();
 });
 
 // Message
-document.getElementById('cakeMessage').addEventListener('input', function() {
-  state.message = this.value;
-  document.getElementById('charCount').textContent = this.value.length;
-  if (this.value.length > 0) completedSteps.add('cakeMessage');
-  else completedSteps.delete('cakeMessage');
+document.getElementById('msgInput').addEventListener('input', function() {
+  S.msg = this.value;
+  document.getElementById('msgCount').textContent = this.value.length;
+  document.getElementById('pv-ms').textContent = this.value || '—';
+  const preview = this.value ? this.value.substring(0,20) + (this.value.length > 20 ? '...' : '') : 'Add a message';
+  document.getElementById('sum7').textContent = preview;
   updatePreview();
 });
 
-setupSingleChips('flavourOptions', 'flavour');
-setupSingleChips('shapeOptions', 'shape');
-setupSingleChips('themeOptions', 'theme');
-setupSingleChips('tierOptions', 'tier');
-setupSingleChips('frostingOptions', 'frosting');
-setupSingleChips('deliveryOptions', 'delivery');
-setupMultiChips('addonOptions');
+// Accordion toggle
+window.toggleStep = function(id) {
+  const el = document.getElementById(id);
+  const wasActive = el.classList.contains('active');
+  document.querySelectorAll('.d-step').forEach(s => s.classList.remove('active'));
+  if(!wasActive) el.classList.add('active');
+};
 
-['flavourOptions','shapeOptions','themeOptions','tierOptions','frostingOptions','deliveryOptions'].forEach(id => {
-  completedSteps.add(id);
-});
-completedSteps.add('weightSlider');
-updatePreview();
+function markStepDone(n) {
+  const el = document.getElementById('pd' + n);
+  if(el) el.classList.add('done');
+  const sn = document.getElementById('sn' + n);
+  if(sn) sn.classList.add('done');
+}
 
-function proceedToOrder() {
-  // set min date to tomorrow
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 2);
-  document.getElementById('userDate').min = tomorrow.toISOString().split('T')[0];
+// Order modal
+function openOrderModal() {
+  const t = new Date(); t.setDate(t.getDate() + 2);
+  document.getElementById('oDate').min = t.toISOString().split('T')[0];
   document.getElementById('orderModal').classList.add('open');
 }
-
 function submitOrder() {
-  const name = document.getElementById('userName').value.trim();
-  const phone = document.getElementById('userPhone').value.trim();
-  const city = document.getElementById('userCity').value.trim();
-  const date = document.getElementById('userDate').value;
-  if (!name || !phone || !city || !date) {
-    showToast('Please fill in all fields 👆');
-    return;
-  }
-  document.getElementById('orderForm').style.display = 'none';
-  document.getElementById('orderSuccess').classList.add('show');
+  const n = document.getElementById('oName').value.trim();
+  const p = document.getElementById('oPhone').value.trim();
+  const c = document.getElementById('oCity').value.trim();
+  const d = document.getElementById('oDate').value;
+  if(!n||!p||!c||!d) { showToast('Please fill in all fields 👆'); return; }
+  document.getElementById('oForm').style.display = 'none';
+  document.getElementById('oSuccess').classList.add('show');
   showToast('🎉 Order request sent!');
 }
+
+// Init
+updatePreview();
 </script>
 </body>
 </html>

@@ -1,419 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find Nearby Bakeries — CakeCraft</title>
-  <meta name="description" content="Browse verified partner bakeries near you on CakeCraft. Compare ratings, specialities and delivery options." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .filter-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px; }
-    .filter-chip {
-      padding:8px 20px; border-radius:99px;
-      border:1.5px solid var(--cream2); background:var(--white);
-      font-size:0.88rem; font-weight:500; cursor:pointer;
-      transition:all 0.25s; font-family:'DM Sans',sans-serif;
-    }
-    .filter-chip:hover, .filter-chip.active { background:var(--brown); color:var(--white); border-color:var(--brown); }
-    .bakery-img-bg-1 { background:linear-gradient(135deg,#FDE8D0,#F4C89A); }
-    .bakery-img-bg-2 { background:linear-gradient(135deg,#E8D5F5,#C8A9E8); }
-    .bakery-img-bg-3 { background:linear-gradient(135deg,#D5EBD5,#A9D4A9); }
-    .bakery-img-bg-4 { background:linear-gradient(135deg,#D5E8F5,#A9C8E8); }
-    .bakery-img-bg-5 { background:linear-gradient(135deg,#F5E8D5,#E8C8A9); }
-    .bakery-img-bg-6 { background:linear-gradient(135deg,#F5D5D5,#E8A9A9); }
-    .stars { color:var(--orange); }
-    .bakery-detail-panel {
-      background:var(--cream); border-radius:var(--radius2); padding:48px;
-      max-width:600px; width:100%;
-    }
-    .map-placeholder {
-      background:linear-gradient(135deg,var(--cream2),#EDE0D0);
-      border-radius:var(--radius); height:200px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:3rem; margin-bottom:24px; position:relative; overflow:hidden;
-    }
-    .map-pin { position:absolute; font-size:2rem; animation:bounce 1.5s ease-in-out infinite; }
-    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-    .no-results { text-align:center; padding:80px 20px; color:var(--brown3); }
-    .no-results .nr-icon { font-size:4rem; display:block; margin-bottom:16px; }
-    .partner-cta {
-      background:var(--brown); color:var(--cream); border-radius:var(--radius2);
-      padding:48px; text-align:center; margin-top:60px;
-    }
-    .partner-cta h2 { color:var(--cream); margin-bottom:12px; }
-    .partner-cta p { color:rgba(250,245,236,0.65); margin-bottom:28px; }
-  </style>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Find Bakeries — CakeCraft</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
-<!-- NAVBAR -->
 <nav class="navbar scrolled" id="navbar">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <div class="logo-icon">🎂</div>
-      CakeCraft
-    </a>
-    <div class="nav-links">
-      <a href="index.html#features">Features</a>
-      <a href="index.html#how-it-works">How It Works</a>
-      <a href="bakeries.html">Bakeries</a>
-    </div>
+  <div class="container"><div class="nav-row">
+    <a href="index.html" class="logo"><div class="logo-icon">🎂</div>CakeCraft</a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="bakeries.html">Bakeries</a><a href="designer.html">Designer</a></div>
     <div class="nav-cta">
-      <a href="bakeries.html" class="btn btn-outline" style="padding:10px 24px;font-size:0.88rem;">Find Bakery</a>
-      <a href="designer.html" class="btn btn-primary" style="padding:10px 24px;font-size:0.88rem;">Design a Cake ✨</a>
+      <a href="bakeries.html" class="btn btn-cream btn-sm">Find Bakery</a>
+      <a href="designer.html" class="btn btn-orange btn-sm">🎨 Design</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div></div>
 </nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-menu" id="closeMenu">✕</button>
-  <a href="index.html">Home</a>
-  <a href="bakeries.html">Find Bakeries</a>
-  <a href="designer.html" class="btn btn-orange">Design a Cake</a>
+<div class="mobile-menu" id="mob"><button class="close-menu" id="mob-close">✕</button>
+  <a href="index.html">Home</a><a href="bakeries.html">Bakeries</a>
+  <a href="designer.html" class="btn btn-orange" style="margin-top:12px">Design a Cake</a>
 </div>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
+<div class="page-top">
+  <div class="page-top-glow" style="width:500px;height:500px;background:rgba(232,101,26,.18);top:-100px;right:-80px;"></div>
+  <div class="page-top-glow" style="width:350px;height:350px;background:rgba(255,179,71,.1);bottom:-60px;left:-60px;"></div>
   <div class="container">
-    <div class="tag">Partner Bakeries</div>
-    <h1 style="font-size:clamp(2rem,5vw,4rem);">Find Bakeries <em style="color:var(--orange);">Near You</em></h1>
-    <p style="max-width:520px;margin:16px auto 0;font-size:1.05rem;">500+ verified partner bakeries across 50+ cities in India. All rated by real customers.</p>
+    <div class="pill" style="margin-bottom:20px;">Partner Bakeries</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.8rem);">Find Bakeries <em style="color:var(--orange3);font-style:italic;">Near You</em></h1>
+    <p style="max-width:520px;margin:14px auto 0;">500+ verified bakeries across 50+ Indian cities. Every one rated by real customers.</p>
   </div>
 </div>
 
-<!-- BAKERIES PAGE -->
-<section class="bakeries-page">
+<section class="bak-body">
   <div class="container">
-
     <!-- Search -->
-    <div class="search-bar">
-      <span style="font-size:1.2rem;">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search by bakery name, city, or speciality..." />
-      <button class="btn btn-primary" style="padding:10px 24px;font-size:0.88rem;" onclick="doSearch()">Search</button>
+    <div class="search-box">
+      <span style="font-size:1.4rem;">🔍</span>
+      <input type="text" id="srch" placeholder="Search by bakery name, city or speciality…"/>
+      <button class="btn btn-orange btn-sm" onclick="doSearch()">Search</button>
     </div>
-
     <!-- Filters -->
-    <div class="filter-bar">
-      <button class="filter-chip active" data-filter="all" onclick="setFilter('all',this)">All Bakeries</button>
-      <button class="filter-chip" data-filter="delivery" onclick="setFilter('delivery',this)">🚚 Delivery</button>
-      <button class="filter-chip" data-filter="photo" onclick="setFilter('photo',this)">📸 Photo Cakes</button>
-      <button class="filter-chip" data-filter="wedding" onclick="setFilter('wedding',this)">💍 Wedding Cakes</button>
-      <button class="filter-chip" data-filter="vegan" onclick="setFilter('vegan',this)">🌱 Vegan Options</button>
-      <button class="filter-chip" data-filter="rated" onclick="setFilter('rated',this)">⭐ Top Rated (4.8+)</button>
+    <div class="filter-row">
+      <button class="fchip active" onclick="setFilter('all',this)">🍰 All Bakeries</button>
+      <button class="fchip" onclick="setFilter('delivery',this)">🚚 Home Delivery</button>
+      <button class="fchip" onclick="setFilter('photo',this)">📸 Photo Cakes</button>
+      <button class="fchip" onclick="setFilter('wedding',this)">💍 Wedding Cakes</button>
+      <button class="fchip" onclick="setFilter('vegan',this)">🌱 Vegan / Eggless</button>
+      <button class="fchip" onclick="setFilter('rated',this)">⭐ Top Rated (4.8+)</button>
     </div>
-
-    <!-- Bakeries Grid -->
-    <div class="bakeries-grid" id="bakeriesGrid">
-      <!-- filled by JS -->
-    </div>
-
-    <div class="no-results" id="noResults" style="display:none;">
-      <span class="nr-icon">🔍</span>
+    <!-- Grid -->
+    <div class="bak-grid3" id="bakGrid"></div>
+    <div class="no-res-box" id="noRes" style="display:none;">
+      <span class="no-res-icon">🔍</span>
       <h3>No bakeries found</h3>
-      <p>Try a different search term or filter</p>
+      <p style="margin-top:8px;color:var(--brown3);">Try a different search or remove a filter</p>
     </div>
-
-    <!-- Partner CTA -->
-    <div class="partner-cta fade-up">
+    <!-- Partner Banner -->
+    <div class="partner-cta-box">
       <h2>Own a Bakery?</h2>
-      <p>Join 500+ partner bakeries already growing their business on CakeCraft. Get more orders, manage them easily, and reach thousands of new customers.</p>
-      <button class="btn btn-orange" onclick="openPartnerModal()">Apply to Become a Partner →</button>
+      <p>Join 500+ partner bakeries growing their business with CakeCraft. More orders, easy management, wider reach.</p>
+      <button class="btn btn-orange" style="position:relative;z-index:1;" onclick="document.getElementById('partnerModal').classList.add('open')">Apply to Become a Partner →</button>
     </div>
   </div>
 </section>
 
-<!-- BAKERY DETAIL MODAL -->
-<div class="modal-overlay" id="bakeryModal">
-  <div class="modal" style="max-width:600px;">
-    <button class="modal-close" onclick="closeModal('bakeryModal')">✕</button>
-    <div id="bakeryModalContent"></div>
+<!-- Bakery Detail Modal -->
+<div class="modal-bg" id="bakModal">
+  <div class="modal-box" style="max-width:540px;">
+    <button class="modal-x" onclick="document.getElementById('bakModal').classList.remove('open')">✕</button>
+    <div id="bakContent"></div>
   </div>
 </div>
 
-<!-- PARTNER MODAL -->
-<div class="modal-overlay" id="partnerModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('partnerModal')">✕</button>
-    <div id="partnerForm">
-      <div style="font-size:3rem;margin-bottom:12px;">🏪</div>
-      <h3>Become a Partner Bakery</h3>
-      <p>Fill in your details and our team will get in touch within 24 hours.</p>
-      <div class="form-group">
-        <label>Bakery Name</label>
-        <input type="text" id="bakeryName" placeholder="e.g. Sweet Dreams Bakery" />
-      </div>
-      <div class="form-group">
-        <label>Owner Name</label>
-        <input type="text" id="ownerName" placeholder="e.g. Ravi Kumar" />
-      </div>
-      <div class="form-group">
-        <label>City</label>
-        <input type="text" id="bakeryCity" placeholder="e.g. Bangalore" />
-      </div>
-      <div class="form-group">
-        <label>Contact Number</label>
-        <input type="tel" id="bakeryPhone" placeholder="+91 98765 43210" />
-      </div>
-      <div class="form-group">
-        <label>Speciality</label>
-        <select id="bakerySpeciality">
-          <option value="">Select speciality</option>
-          <option>Custom Cakes</option>
-          <option>Wedding Cakes</option>
-          <option>Photo Cakes</option>
-          <option>Eggless Cakes</option>
-          <option>All Types</option>
-        </select>
-      </div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitPartner()">Submit Application →</button>
+<!-- Partner Modal -->
+<div class="modal-bg" id="partnerModal">
+  <div class="modal-box">
+    <button class="modal-x" onclick="document.getElementById('partnerModal').classList.remove('open')">✕</button>
+    <div id="pf">
+      <div style="font-size:3rem;margin-bottom:14px;">🏪</div>
+      <h3 style="margin-bottom:8px;">Become a Partner Bakery</h3>
+      <p style="margin-bottom:28px;">Fill in your details and our team will get in touch within 24 hours.</p>
+      <div class="form-field"><label>Bakery Name</label><input type="text" placeholder="Sweet Dreams Bakery"/></div>
+      <div class="form-field"><label>Owner Name</label><input type="text" placeholder="e.g. Ravi Kumar"/></div>
+      <div class="form-field"><label>City</label><input type="text" placeholder="e.g. Bangalore"/></div>
+      <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="+91 98765 43210"/></div>
+      <button class="btn btn-orange" style="width:100%;justify-content:center;"
+        onclick="document.getElementById('pf').style.display='none';document.getElementById('ps').classList.add('show')">
+        Submit Application →
+      </button>
     </div>
-    <div class="success-msg" id="partnerSuccess">
-      <span class="success-icon">🎉</span>
+    <div class="success-block" id="ps">
+      <span class="success-ico">🎉</span>
       <h3>Application Received!</h3>
-      <p>Thanks for applying! Our team will review your application and contact you within 24 hours.</p>
+      <p>Our team will contact you within 24 hours.</p>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast">
-  <span class="toast-icon">🏪</span>
-  <span id="toastMsg">Bakeries loaded!</span>
-</div>
-
+<div class="toast" id="toast"><span>🏪</span><span id="toastMsg">Loaded!</span></div>
 <script src="script.js"></script>
 <script>
-const BAKERIES = [
-  {
-    id:1, name:"Sweet Dreams Bakery", city:"Mumbai", area:"Andheri West",
-    rating:4.9, reviews:312, bg:"bakery-img-bg-1", emoji:"🎂",
-    tags:["Custom Cakes","Photo Cakes","Delivery","Wedding"],
-    delivery:true, photo:true, wedding:true, vegan:false,
-    price:"₹500–₹5,000", turnaround:"24 hrs",
-    specialities:["Chocolate Fantasy","Red Velvet","Photo Cakes","Wedding Tiers"],
-    description:"Mumbai's most loved custom cake bakery. Award-winning designs, 100% fresh ingredients, and same-city delivery within 6 hours.",
-    distance:"1.2 km"
-  },
-  {
-    id:2, name:"Flour & Fantasy", city:"Bangalore", area:"Koramangala",
-    rating:4.8, reviews:198, bg:"bakery-img-bg-2", emoji:"🍰",
-    tags:["Wedding Cakes","Vegan","Delivery"],
-    delivery:true, photo:false, wedding:true, vegan:true,
-    price:"₹800–₹15,000", turnaround:"48 hrs",
-    specialities:["Multi-tier Wedding","Vegan Cakes","Fondant Art","Floral Designs"],
-    description:"Bangalore's premier wedding cake studio. Specialists in multi-tier fondant masterpieces and vegan-friendly options.",
-    distance:"2.5 km"
-  },
-  {
-    id:3, name:"The Cake Studio", city:"Delhi", area:"Hauz Khas",
-    rating:4.7, reviews:445, bg:"bakery-img-bg-3", emoji:"🎉",
-    tags:["Custom Cakes","Photo Cakes","Pickup"],
-    delivery:false, photo:true, wedding:false, vegan:false,
-    price:"₹400–₹3,500", turnaround:"24 hrs",
-    specialities:["Photo Print Cakes","Birthday Themes","Cartoon Cakes","Custom Toppers"],
-    description:"Delhi's go-to for themed birthday cakes and photo-printed masterpieces. Pickup-only with an open baking studio.",
-    distance:"3.1 km"
-  },
-  {
-    id:4, name:"Sugarcraft Co.", city:"Chennai", area:"T. Nagar",
-    rating:4.9, reviews:278, bg:"bakery-img-bg-4", emoji:"🍫",
-    tags:["Custom Cakes","Delivery","Wedding","Photo Cakes"],
-    delivery:true, photo:true, wedding:true, vegan:false,
-    price:"₹600–₹8,000", turnaround:"36 hrs",
-    specialities:["Chocolate Drip","Mirror Glaze","South Indian Fusion","Photo Cakes"],
-    description:"Chennai's finest sugarcraft artists. Known for extraordinary chocolate drip and mirror glaze cakes shipped citywide.",
-    distance:"0.8 km"
-  },
-  {
-    id:5, name:"Petal & Crumb", city:"Hyderabad", area:"Jubilee Hills",
-    rating:4.8, reviews:156, bg:"bakery-img-bg-5", emoji:"🌸",
-    tags:["Floral Cakes","Vegan","Wedding","Delivery"],
-    delivery:true, photo:false, wedding:true, vegan:true,
-    price:"₹700–₹12,000", turnaround:"48 hrs",
-    specialities:["Pressed Flower Cakes","Botanical Themes","Vegan Buttercream","Eggless"],
-    description:"Hyderabad's floral cake specialists. Every cake is an edible garden — intricate pressed flowers, botanical themes, 100% eggless.",
-    distance:"4.0 km"
-  },
-  {
-    id:6, name:"Royal Bakes", city:"Pune", area:"Viman Nagar",
-    rating:4.6, reviews:391, bg:"bakery-img-bg-6", emoji:"👑",
-    tags:["Custom Cakes","Photo Cakes","Delivery"],
-    delivery:true, photo:true, wedding:false, vegan:false,
-    price:"₹350–₹2,500", turnaround:"24 hrs",
-    specialities:["Budget Custom Cakes","Photo Cakes","Bulk Orders","Corporate Cakes"],
-    description:"Pune's most value-for-money custom cake bakery. Perfect for bulk corporate orders and last-minute custom requests.",
-    distance:"1.7 km"
-  },
-  {
-    id:7, name:"Bloom Patisserie", city:"Kolkata", area:"Park Street",
-    rating:4.9, reviews:203, bg:"bakery-img-bg-2", emoji:"🌺",
-    tags:["French Style","Wedding","Delivery","Vegan"],
-    delivery:true, photo:true, wedding:true, vegan:true,
-    price:"₹900–₹20,000", turnaround:"72 hrs",
-    specialities:["French Patisserie","Macaron Towers","Opera Cakes","Vegan Mousse"],
-    description:"Kolkata's premium French patisserie. Trained in Lyon, our head baker brings European elegance to custom wedding cakes.",
-    distance:"5.2 km"
-  },
-  {
-    id:8, name:"Confetti Cakes", city:"Ahmedabad", area:"Satellite",
-    rating:4.7, reviews:167, bg:"bakery-img-bg-3", emoji:"🎊",
-    tags:["Custom Cakes","Kids Themes","Delivery","Photo Cakes"],
-    delivery:true, photo:true, wedding:false, vegan:false,
-    price:"₹450–₹3,000", turnaround:"24 hrs",
-    specialities:["Kids Birthday Themes","Character Cakes","Photo Prints","Cartoon Designs"],
-    description:"Ahmedabad's most fun cake bakery! Specialists in kids' themed and character cakes. Every cake is an adventure.",
-    distance:"2.3 km"
-  },
-  {
-    id:9, name:"The Velvet Room", city:"Jaipur", area:"C-Scheme",
-    rating:4.8, reviews:89, bg:"bakery-img-bg-1", emoji:"🍰",
-    tags:["Wedding Cakes","Luxury","Delivery","Vegan"],
-    delivery:true, photo:true, wedding:true, vegan:true,
-    price:"₹1,500–₹50,000", turnaround:"72 hrs",
-    specialities:["Luxury Wedding Cakes","Royal Rajasthani Themes","Isomalt Art","Gold Leaf"],
-    description:"Jaipur's premier luxury cake atelier. Our cakes are Instagram-famous for gold leaf accents and Rajasthani royal motifs.",
-    distance:"3.8 km"
-  }
+const BAKS = [
+  {id:1,name:"Sweet Dreams Bakery",city:"Mumbai",area:"Andheri West",rating:4.9,reviews:312,hd:"bh-or",emoji:"🎂",tags:["Custom","Photo","Delivery","Wedding"],delivery:true,photo:true,wedding:true,vegan:false,price:"₹500–₹5,000",time:"24 hrs",dist:"1.2 km",desc:"Mumbai's most loved custom cake bakery. Award-winning designs, 100% fresh ingredients, and express delivery.",spec:["Chocolate Fantasy","Photo Cakes","Wedding Tiers","Red Velvet"]},
+  {id:2,name:"Flour & Fantasy",city:"Bangalore",area:"Koramangala",rating:4.8,reviews:198,hd:"bh-pu",emoji:"🍰",tags:["Wedding","Vegan","Delivery"],delivery:true,photo:false,wedding:true,vegan:true,price:"₹800–₹15,000",time:"48 hrs",dist:"2.5 km",desc:"Bangalore's premier wedding cake studio. Specialists in multi-tier fondant masterpieces and vegan-friendly options.",spec:["Multi-tier Wedding","Vegan Cakes","Fondant Art","Floral Designs"]},
+  {id:3,name:"The Cake Studio",city:"Delhi",area:"Hauz Khas",rating:4.7,reviews:445,hd:"bh-gr",emoji:"🎉",tags:["Custom","Photo","Pickup"],delivery:false,photo:true,wedding:false,vegan:false,price:"₹400–₹3,500",time:"24 hrs",dist:"3.1 km",desc:"Delhi's go-to for themed birthday cakes and photo-printed masterpieces. Pickup only with an open baking studio.",spec:["Photo Print","Birthday Themes","Cartoon Cakes","Custom Toppers"]},
+  {id:4,name:"Sugarcraft Co.",city:"Chennai",area:"T. Nagar",rating:4.9,reviews:278,hd:"bh-bl",emoji:"🍫",tags:["Custom","Delivery","Wedding","Photo"],delivery:true,photo:true,wedding:true,vegan:false,price:"₹600–₹8,000",time:"36 hrs",dist:"0.8 km",desc:"Chennai's finest sugarcraft artists. Known for extraordinary chocolate drip cakes and mirror glaze creations.",spec:["Chocolate Drip","Mirror Glaze","Photo Cakes","Fusion Flavours"]},
+  {id:5,name:"Petal & Crumb",city:"Hyderabad",area:"Jubilee Hills",rating:4.8,reviews:156,hd:"bh-am",emoji:"🌸",tags:["Floral","Vegan","Wedding","Delivery"],delivery:true,photo:false,wedding:true,vegan:true,price:"₹700–₹12,000",time:"48 hrs",dist:"4.0 km",desc:"Hyderabad's floral cake specialists. Every cake is an edible garden — intricate pressed flowers, 100% eggless.",spec:["Pressed Flower Cakes","Botanical Themes","Vegan Buttercream","Eggless"]},
+  {id:6,name:"Royal Bakes",city:"Pune",area:"Viman Nagar",rating:4.6,reviews:391,hd:"bh-re",emoji:"👑",tags:["Custom","Photo","Delivery"],delivery:true,photo:true,wedding:false,vegan:false,price:"₹350–₹2,500",time:"24 hrs",dist:"1.7 km",desc:"Pune's most value-for-money custom cake bakery. Great for bulk corporate orders and last-minute requests.",spec:["Budget Custom","Photo Cakes","Bulk Orders","Corporate Cakes"]},
+  {id:7,name:"Bloom Patisserie",city:"Kolkata",area:"Park Street",rating:4.9,reviews:203,hd:"bh-tl",emoji:"🌺",tags:["French","Wedding","Vegan","Delivery"],delivery:true,photo:true,wedding:true,vegan:true,price:"₹900–₹20,000",time:"72 hrs",dist:"5.2 km",desc:"Kolkata's premium French patisserie. Trained in Lyon, European elegance meets custom wedding cakes.",spec:["French Patisserie","Macaron Towers","Opera Cakes","Vegan Mousse"]},
+  {id:8,name:"Confetti Cakes",city:"Ahmedabad",area:"Satellite",rating:4.7,reviews:167,hd:"bh-pi",emoji:"🎊",tags:["Kids","Photo","Delivery"],delivery:true,photo:true,wedding:false,vegan:false,price:"₹450–₹3,000",time:"24 hrs",dist:"2.3 km",desc:"Ahmedabad's most fun bakery. Specialists in kids' themed and character cakes that make every birthday magical.",spec:["Kids Birthday","Character Cakes","Photo Prints","Cartoon Designs"]},
+  {id:9,name:"The Velvet Room",city:"Jaipur",area:"C-Scheme",rating:4.8,reviews:89,hd:"bh-na",emoji:"🍰",tags:["Luxury","Wedding","Vegan","Delivery"],delivery:true,photo:true,wedding:true,vegan:true,price:"₹1,500–₹50,000",time:"72 hrs",dist:"3.8 km",desc:"Jaipur's premier luxury cake atelier. Instagram-famous for edible gold leaf accents and royal Rajasthani motifs.",spec:["Luxury Wedding","Royal Themes","Isomalt Art","Gold Leaf"]}
 ];
 
-let currentFilter = 'all';
-let currentSearch = '';
+let curFilter='all', curSearch='';
 
-function renderBakeries() {
-  const grid = document.getElementById('bakeriesGrid');
-  let list = BAKERIES;
+function render() {
+  let list = BAKS;
+  if(curSearch) { const q=curSearch.toLowerCase(); list=list.filter(b=>b.name.toLowerCase().includes(q)||b.city.toLowerCase().includes(q)||b.tags.some(t=>t.toLowerCase().includes(q))); }
+  if(curFilter==='delivery') list=list.filter(b=>b.delivery);
+  if(curFilter==='photo')    list=list.filter(b=>b.photo);
+  if(curFilter==='wedding')  list=list.filter(b=>b.wedding);
+  if(curFilter==='vegan')    list=list.filter(b=>b.vegan);
+  if(curFilter==='rated')    list=list.filter(b=>b.rating>=4.8);
 
-  if (currentSearch) {
-    const q = currentSearch.toLowerCase();
-    list = list.filter(b =>
-      b.name.toLowerCase().includes(q) ||
-      b.city.toLowerCase().includes(q) ||
-      b.area.toLowerCase().includes(q) ||
-      b.tags.some(t => t.toLowerCase().includes(q))
-    );
-  }
-  if (currentFilter === 'delivery') list = list.filter(b => b.delivery);
-  if (currentFilter === 'photo')    list = list.filter(b => b.photo);
-  if (currentFilter === 'wedding')  list = list.filter(b => b.wedding);
-  if (currentFilter === 'vegan')    list = list.filter(b => b.vegan);
-  if (currentFilter === 'rated')    list = list.filter(b => b.rating >= 4.8);
-
-  document.getElementById('noResults').style.display = list.length ? 'none' : 'block';
-
-  grid.innerHTML = list.map(b => `
-    <div class="bakery-card fade-up">
-      <div class="bakery-img ${b.bg}">
-        <span style="font-size:4.5rem;">${b.emoji}</span>
-        <div class="bakery-badge">⭐ ${b.rating}</div>
+  document.getElementById('noRes').style.display = list.length ? 'none' : 'block';
+  document.getElementById('bakGrid').innerHTML = list.map(b => `
+    <div class="bak-card reveal">
+      <div class="bak-head ${b.hd}">
+        <span class="bak-big-emoji">${b.emoji}</span>
+        <div class="bak-stars"><span class="s">★</span>${b.rating}</div>
       </div>
-      <div class="bakery-info">
+      <div class="bak-info">
         <h3>${b.name}</h3>
-        <div class="bakery-meta">
-          <span class="b-tag">📍 ${b.area}, ${b.city}</span>
-          <span class="b-tag">🚶 ${b.distance}</span>
+        <div class="bak-meta-row">
+          <span class="bak-mt">📍 ${b.area}, ${b.city}</span>
+          <span class="bak-mt">🚶 ${b.dist}</span>
+          <span class="bak-mt">⏱️ ${b.time}</span>
+          <span class="bak-mt">💬 ${b.reviews} reviews</span>
         </div>
-        <div class="bakery-meta" style="margin-bottom:12px;">
-          <span class="b-tag">⏱️ ${b.turnaround}</span>
-          <span class="b-tag">💬 ${b.reviews} reviews</span>
-        </div>
-        <div class="bakery-chips">
-          ${b.tags.map(t=>`<span class="b-chip">${t}</span>`).join('')}
-        </div>
-        <div style="display:flex;gap:10px;">
-          <button class="btn btn-outline" style="flex:1;justify-content:center;padding:10px;font-size:0.85rem;" onclick="openBakery(${b.id})">View Details</button>
-          <a href="designer.html" class="btn btn-orange" style="flex:1;justify-content:center;padding:10px;font-size:0.85rem;">Order Now</a>
+        <div class="bak-tag-row">${b.tags.map(t=>`<span class="bak-tag-chip">${t}</span>`).join('')}</div>
+        <div class="bak-action-row">
+          <button class="bak-ghost" onclick="openBak(${b.id})">View Details</button>
+          <a href="designer.html" class="bak-cta">Order Now</a>
         </div>
       </div>
     </div>
   `).join('');
-
-  // Trigger animations
-  requestAnimationFrame(() => {
-    grid.querySelectorAll('.fade-up').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), i * 80);
-    });
-  });
+  setTimeout(() => {
+    document.querySelectorAll('#bakGrid .reveal').forEach((el,i) => setTimeout(() => el.classList.add('in'), i*70));
+  }, 50);
 }
 
 function setFilter(f, el) {
-  currentFilter = f;
-  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  curFilter = f;
+  document.querySelectorAll('.fchip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
-  renderBakeries();
+  render();
 }
-
 function doSearch() {
-  currentSearch = document.getElementById('searchInput').value.trim();
-  renderBakeries();
+  curSearch = document.getElementById('srch').value.trim();
+  render();
 }
+document.getElementById('srch').addEventListener('keydown', e => { if(e.key==='Enter') doSearch(); });
 
-document.getElementById('searchInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') doSearch();
-});
-
-function openBakery(id) {
-  const b = BAKERIES.find(x => x.id === id);
-  const stars = '★'.repeat(Math.floor(b.rating)) + (b.rating % 1 ? '½' : '');
-  document.getElementById('bakeryModalContent').innerHTML = `
-    <div class="map-placeholder">
-      <span style="font-size:5rem;opacity:0.3;">🗺️</span>
-      <span class="map-pin">📍</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-      <div style="font-size:3.5rem;">${b.emoji}</div>
-      <div>
-        <h3 style="margin-bottom:4px;">${b.name}</h3>
-        <div style="color:var(--brown3);font-size:0.9rem;">📍 ${b.area}, ${b.city}</div>
-        <div style="color:var(--orange);font-size:0.9rem;margin-top:4px;">${stars} ${b.rating} · ${b.reviews} reviews</div>
+function openBak(id) {
+  const b = BAKS.find(x=>x.id===id);
+  document.getElementById('bakContent').innerHTML = `
+    <div class="bak-head ${b.hd}" style="height:160px;border-radius:var(--r3);margin-bottom:24px;display:flex;align-items:center;justify-content:center;font-size:5rem;">${b.emoji}</div>
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;">
+      <div style="flex:1;">
+        <h3 style="margin-bottom:5px;">${b.name}</h3>
+        <div style="color:var(--brown3);font-size:.88rem;font-weight:700;">📍 ${b.area}, ${b.city}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="font-size:1.5rem;font-weight:900;font-family:var(--display-font);color:var(--brown);">★${b.rating}</div>
+        <div style="font-size:.74rem;color:var(--brown3);font-weight:700;">${b.reviews} reviews</div>
       </div>
     </div>
-    <p style="margin-bottom:24px;">${b.description}</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
-      <div style="background:var(--cream2);border-radius:12px;padding:16px;text-align:center;">
-        <div style="font-size:1.4rem;font-weight:700;color:var(--brown);">${b.price}</div>
-        <div style="font-size:0.8rem;color:var(--brown3);">Price Range</div>
+    <p style="margin-bottom:20px;font-size:.9rem;">${b.desc}</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+      <div style="background:var(--cream);border-radius:var(--r2);padding:14px;text-align:center;">
+        <div style="font-size:1.1rem;font-weight:900;font-family:var(--display-font);color:var(--brown);">${b.price}</div>
+        <div style="font-size:.74rem;color:var(--brown3);font-weight:700;margin-top:3px;">Price Range</div>
       </div>
-      <div style="background:var(--cream2);border-radius:12px;padding:16px;text-align:center;">
-        <div style="font-size:1.4rem;font-weight:700;color:var(--brown);">${b.turnaround}</div>
-        <div style="font-size:0.8rem;color:var(--brown3);">Turnaround</div>
+      <div style="background:var(--cream);border-radius:var(--r2);padding:14px;text-align:center;">
+        <div style="font-size:1.1rem;font-weight:900;font-family:var(--display-font);color:var(--brown);">${b.time}</div>
+        <div style="font-size:.74rem;color:var(--brown3);font-weight:700;margin-top:3px;">Turnaround</div>
       </div>
     </div>
-    <div style="margin-bottom:24px;">
-      <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--brown3);margin-bottom:12px;">Specialities</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;">
-        ${b.specialities.map(s=>`<span style="background:var(--cream2);padding:6px 14px;border-radius:99px;font-size:0.82rem;">${s}</span>`).join('')}
-      </div>
+    <div style="margin-bottom:22px;">
+      <div style="font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--brown3);margin-bottom:10px;">Specialities</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">${b.spec.map(s=>`<span style="background:var(--cream);padding:6px 14px;border-radius:99px;font-size:.82rem;font-weight:700;">${s}</span>`).join('')}</div>
     </div>
     <a href="designer.html" class="btn btn-orange" style="width:100%;justify-content:center;">
-      🎂 &nbsp;Design a Cake for This Bakery →
+      🎂 Design a Cake for ${b.name.split(' ')[0]} →
     </a>
   `;
-  document.getElementById('bakeryModal').classList.add('open');
+  document.getElementById('bakModal').classList.add('open');
 }
 
-function openPartnerModal() {
-  document.getElementById('partnerModal').classList.add('open');
-}
-
-function submitPartner() {
-  const n = document.getElementById('bakeryName').value.trim();
-  const o = document.getElementById('ownerName').value.trim();
-  const c = document.getElementById('bakeryCity').value.trim();
-  const p = document.getElementById('bakeryPhone').value.trim();
-  if (!n || !o || !c || !p) {
-    showToast('Please fill in all fields 👆');
-    return;
-  }
-  document.getElementById('partnerForm').style.display = 'none';
-  document.getElementById('partnerSuccess').classList.add('show');
-  showToast('🎉 Application submitted!');
-}
-
-renderBakeries();
+render();
 </script>
 </body>
 </html>
